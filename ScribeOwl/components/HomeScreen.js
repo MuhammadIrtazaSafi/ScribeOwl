@@ -8,13 +8,15 @@ export default class HomeScreen extends React.Component {
 
     jobs = [];
 
+
+
     static getCreateNewJobButton(): React.Node {
         return <View style = {Styles.requestTranscriptionButton}>
             <Button
                 title="Request New Transcription"
                 color="white"
                 accessibilityLabel="Learn more about this purple button"
-            />
+             onPress={() =>  this.props.navigation.navigate('SubmitJob')}/>
         </View>;
     }
 
