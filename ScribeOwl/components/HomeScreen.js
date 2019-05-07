@@ -8,15 +8,18 @@ export default class HomeScreen extends React.Component {
 
     jobs = [];
 
+    createButtonClicked = () => {
+        this.props.navigation.navigate('SubmitJob');
+    };
 
 
-    static getCreateNewJobButton(): React.Node {
+     getCreateNewJobButton(): React.Node {
         return <View style = {Styles.requestTranscriptionButton}>
             <Button
                 title="Request New Transcription"
                 color="white"
                 accessibilityLabel="Learn more about this purple button"
-             onPress={() =>  this.props.navigation.navigate('SubmitJob')}/>
+             onPress={() => this.createButtonClicked()}/>
         </View>;
     }
 
@@ -43,7 +46,7 @@ export default class HomeScreen extends React.Component {
         }
         return (
             <View style={{flex:1,flexDirection: 'column', padding: 20}}>
-                {HomeScreen.getCreateNewJobButton()}
+                {this.getCreateNewJobButton()}
                 <View style = {{flex:1, paddingTop:10}}>
                 <FlatList
                 keyExtractor={(item, index) => index.toString()}
